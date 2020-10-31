@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const connectionString = 'mongodb+srv://dbuser:dbuser@cluster0.dm6ae.mongodb.net/mydb?retryWrites=true&w=majority';
+const connectionString = process.env.MONGODB_URI;
+//Mongodb Schema {email:"emailID"}
 
 app.use(cors());
 app.use(bodyParser.json());
